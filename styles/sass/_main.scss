@@ -1,0 +1,52 @@
+h2 {
+	font-size: 3rem;
+	margin-bottom: 2rem;
+}
+.question {
+	font-size: 1.5rem;
+
+	fieldset {
+		padding: 1rem;
+	}
+
+	input {
+		margin-bottom: 1rem;
+	}
+}
+
+/* CHECKED STYLES */
+[type='radio']:checked + label img {
+    opacity: 1;
+    
+}
+
+/* HIDE RADIO */
+[type='radio'] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* IMAGE STYLES */
+[type='radio'] + label img {
+	cursor: pointer;
+    max-width: 100px;
+    opacity: 0.5;
+}
+
+legend {
+	margin: 0 auto;
+}
+
+.show {
+	visibility: visible;
+}
+
+.hide {
+	visibility: hidden;
+}
+
+.allContent {
+	text-align: center;
+}

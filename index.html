@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper allContent">
+        <button class="btn getBins">Play Game</button>
+        <div class="gameContent hide">
+            <div>
+                <p>Score <span class="score">0</span></p>
+            </div>
+            <h2 class="keywordItem">KeyWord</h2>
+            <form class="question" id="userPick" method="" action="">
+                <fieldset>
+                    <legend>Which Bin Does This Go In?</legend>
+
+                    <input type="radio" name="whichBin" required value="blueBin" id="blueBin">
+                    <label for="blueBin"> <img src="./imgs/bluebin.png" alt="blue bin"></label>
+
+                    <input type="radio" name="whichBin" value="greenBin" id="greenBin">
+                    <label for="greenBin"> <img src="./imgs/greenbin.png" alt="green bin"></label>
+
+                    <input type="radio" name="whichBin" value="garbage" id="garbage">
+                    <label for="garbage"> <img src="./imgs/garbagebin.png" alt="garbage bin"></label><br>
+
+                    <button class="btn" type="submit">Enter</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
