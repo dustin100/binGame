@@ -1,30 +1,30 @@
 // nameSpace
-const trashGame = {};
+const game = {};
 
 document.addEventListener('DOMContentLoaded', function (event) {
-	trashGame.init();
+	game.init();
 });
 
-trashGame.endPoint = `https://secure.toronto.ca/cc_sr_v1/data/swm_waste_wizard_APR?limit=1000`;
-trashGame.storeData = [];
-trashGame.blueBin = [];
-trashGame.greenBin = [];
-trashGame.garbage = [];
-trashGame.keywordCategory = '';
-trashGame.getBins = document.querySelector('.getBins');
-trashGame.selectedKeyword = document.querySelector('.keywordItem');
-trashGame.formSubmit = document.querySelector('#userPick');
-trashGame.gameContent = document.querySelector('.gameContent');
-trashGame.gameScore = document.querySelector('.score');
-trashGame.totalScore = 0;
+game.endPoint = `https://secure.toronto.ca/cc_sr_v1/data/swm_waste_wizard_APR?limit=1000`;
+game.storeData = [];
+game.blueBin = [];
+game.greenBin = [];
+game.garbage = [];
+game.keywordCategory = '';
+game.getBins = document.querySelector('.getBins');
+game.selectedKeyword = document.querySelector('.keywordItem');
+game.formSubmit = document.querySelector('#userPick');
+game.gameContent = document.querySelector('.gameContent');
+game.gameScore = document.querySelector('.score');
+game.totalScore = 0;
 
-trashGame.init = () => {
-	trashGame.garbageData(trashGame.separate);
+game.init = () => {
+	game.garbageData(game.separate);
 };
 
 // Grabs Data and pushes into a new array
-trashGame.garbageData = async (callback) => {
-	const { endPoint, storeData } = trashGame;
+game.garbageData = async (callback) => {
+	const { endPoint, storeData } = game;
 	const res = await fetch(endPoint);
 	const data = await res.json();
 	data.forEach((i) => {
@@ -34,8 +34,8 @@ trashGame.garbageData = async (callback) => {
 };
 
 // separates obj into their bin colors
-trashGame.separate = () => {
-	const { storeData, blueBin, greenBin, garbage } = trashGame;
+game.separate = () => {
+	const { storeData, blueBin, greenBin, garbage } = game;
 	storeData.forEach((i) => {
 		if (i.category === 'Green Bin') {
 			greenBin.push(i);
@@ -47,21 +47,21 @@ trashGame.separate = () => {
 	});
 };
 
-trashGame.keepScore = () => {
-	trashGame.totalScore = trashGame.totalScore + 3;
-	trashGame.gameScore.innerHTML = trashGame.totalScore;
+game.keepScore = () => {
+	game.totalScore = game.totalScore + 3;
+	game.gameScore.innerHTML = game.totalScore;
 };
 
 // pull random word out of obj.keywords
-trashGame.handleStart = () => {
-	const { generateQs, getBins, gameContent } = trashGame;
+game.handleStart = () => {
+	const { generateQs, getBins, gameContent } = game;
 	getBins.className = 'hide';
 	generateQs();
 	gameContent.className = 'gameContent show';
 };
 
-trashGame.generateQs = () => {
-	const { getRandom, greenBin, blueBin, garbage } = trashGame;
+game.generateQs = () => {
+	const { getRandom, greenBin, blueBin, garbage } = game;
 	const allKeyWords = []; //will store all keywords from selectedBin
 	const allBins = [greenBin, blueBin, garbage]; //Three bins to pick from
 	const selectedBin = getRandom(allBins); //Will pick one of the three bins at random
@@ -76,25 +76,25 @@ trashGame.generateQs = () => {
 	let randomWord = getRandom(allKeyWords);
 	console.log(randomWord, correctCat);
 	// sets the local variables to the global object to use for questions
-	trashGame.selectedKeyword.innerHTML = randomWord;
-	trashGame.keywordCategory = correctCat;
+	game.selectedKeyword.innerHTML = randomWord;
+	game.keywordCategory = correctCat;
 };
 
 // get random item from an array
-trashGame.getRandom = (array) =>
+game.getRandom = (array) =>
 	array[Math.floor(Math.random() * array.length)];
 
-trashGame.getUserSelection = (e) => {
+game.getUserSelection = (e) => {
 	e.preventDefault();
-	trashGame.userSelection = document.querySelector(
+	game.userSelection = document.querySelector(
 		'[name=whichBin]:checked'
 	).value;
-	console.log(trashGame.userSelection);
-	trashGame.checkAnswer();
+	console.log(game.userSelection);
+	game.checkAnswer();
 };
 
-trashGame.checkAnswer = () => {
-	const { userSelection, keywordCategory, generateQs, keepScore } = trashGame;
+game.checkAnswer = () => {
+	const { userSelection, keywordCategory, generateQs, keepScore } = game;
 	const us = userSelection.replace(/ /g, '').toLowerCase();
 	const kw = keywordCategory.replace(/ /g, '').toLowerCase();
 	if (us === kw) {
@@ -105,5 +105,5 @@ trashGame.checkAnswer = () => {
 	}
 };
 
-trashGame.getBins.addEventListener('click', trashGame.handleStart);
-trashGame.formSubmit.addEventListener('submit', trashGame.getUserSelection);
+game.getBins.addEventListener('click', game.handleStart);
+game.formSubmit.addEventListener('submit', game.getUserSelection);
