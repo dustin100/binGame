@@ -17,13 +17,15 @@ game.formSubmit = document.querySelector('#userPick');
 game.gameContent = document.querySelector('.gameContent');
 game.gameScore = document.querySelector('.score');
 game.totalScore = 0;
+game.countDown = document.querySelector('.countDown');
+game.time = 30;
 
 game.init = () => {
-	game.garbageData(game.separate);
+	game.fetchData(game.separate);
 };
 
 // Grabs Data and pushes into a new array
-game.garbageData = async (callback) => {
+game.fetchData = async (callback) => {
 	const { endPoint, storeData } = game;
 	const res = await fetch(endPoint);
 	const data = await res.json();
@@ -47,25 +49,37 @@ game.separate = () => {
 	});
 };
 
-game.keepScore = () => {
+game.scoreUp = () => {
 	game.totalScore = game.totalScore + 3;
 	game.gameScore.innerHTML = game.totalScore;
 };
 
+game.scoreDown = () => {
+	if (game.totalScore > 0) {
+		game.totalScore = game.totalScore - 1;
+		game.gameScore.innerHTML = game.totalScore;
+	} else {
+		game.totalScore = 0;
+	}
+};
+
 // pull random word out of obj.keywords
 game.handleStart = () => {
-	const { generateQs, getBins, gameContent } = game;
-	getBins.className = 'hide';
+	const { generateQs, getBins, gameContent, startTimer } = game;
+	getBins.classList.add('hide');
 	generateQs();
-	gameContent.className = 'gameContent show';
+	startTimer();
+	gameContent.classList.remove('hide');
 };
 
 game.generateQs = () => {
-	const { getRandom, greenBin, blueBin, garbage } = game;
+	const { getRandom, greenBin, blueBin, garbage, keywordCategory } = game;
 	const allKeyWords = []; //will store all keywords from selectedBin
 	const allBins = [greenBin, blueBin, garbage]; //Three bins to pick from
 	const selectedBin = getRandom(allBins); //Will pick one of the three bins at random
 	const correctCat = selectedBin[0].category; //keeps track of which color bin has been picked
+
+	// Loops through all the objs in the selected bin array and separates /splits the string of keywords Then the inner loop removes whitespace and pushes keywords into a new array to use later
 	selectedBin.forEach((i) => {
 		let keyword = i.keywords.split(',');
 		keyword.forEach((x) => {
@@ -73,37 +87,52 @@ game.generateQs = () => {
 		});
 	});
 
-	let randomWord = getRandom(allKeyWords);
-	console.log(randomWord, correctCat);
-	// sets the local variables to the global object to use for questions
-	game.selectedKeyword.innerHTML = randomWord;
+	game.selectedKeyword.innerHTML = getRandom(allKeyWords);
 	game.keywordCategory = correctCat;
 };
 
 // get random item from an array
-game.getRandom = (array) =>
-	array[Math.floor(Math.random() * array.length)];
+game.getRandom = (array) => array[Math.floor(Math.random() * array.length)];
 
-game.getUserSelection = (e) => {
+game.handleUserSubmit = (e) => {
 	e.preventDefault();
-	game.userSelection = document.querySelector(
-		'[name=whichBin]:checked'
-	).value;
-	console.log(game.userSelection);
+	game.userSelection = document.querySelector('[name=whichBin]:checked').value;
 	game.checkAnswer();
 };
 
 game.checkAnswer = () => {
-	const { userSelection, keywordCategory, generateQs, keepScore } = game;
+	const {
+		userSelection,
+		keywordCategory,
+		generateQs,
+		scoreUp,
+		scoreDown,
+	} = game;
 	const us = userSelection.replace(/ /g, '').toLowerCase();
 	const kw = keywordCategory.replace(/ /g, '').toLowerCase();
 	if (us === kw) {
 		generateQs();
-		keepScore();
+		scoreUp();
 	} else {
 		console.log('wrong');
+		scoreDown();
+	}
+};
+
+// add timer
+game.startTimer = () => {
+	game.interval = setInterval(countDown, 1000);
+
+	function countDown() {
+		game.time--;
+		game.countDown.innerHTML = game.time;
+		if (game.time <= 0) {
+			clearInterval(game.interval);
+			// do something after timer is done prob show final score and a playagain button
+			console.log(`your final score is ${game.totalScore}`);
+		}
 	}
 };
 
 game.getBins.addEventListener('click', game.handleStart);
-game.formSubmit.addEventListener('submit', game.getUserSelection);
+game.formSubmit.addEventListener('submit', game.handleUserSubmit);
