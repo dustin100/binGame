@@ -37,6 +37,36 @@
     </div>
 
     <script src="./js/script.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+
+
+
+
+    <script>
+        const firebaseConfig = {
+            apiKey: 'AIzaSyAq0FtgPYzd10Ld0-RoUXOY-6bmkJ1bXAY',
+            authDomain: 'bingame-e7541.firebaseapp.com',
+            databaseURL: 'https://bingame-e7541.firebaseio.com',
+            projectId: 'bingame-e7541',
+            storageBucket: 'bingame-e7541.appspot.com',
+            messagingSenderId: '1035272280357',
+            appId: '1:1035272280357:web:23431e9db6bd545f12e2cc',
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+
+        const dbRef = firebase.database().ref();
+
+        // listen for changes from the database
+        dbRef.on('value', (snapshot) => {
+            const data = snapshot.val();
+            console.log(data)
+        })
+    </script>
 </body>
 
 </html>

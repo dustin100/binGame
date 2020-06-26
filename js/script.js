@@ -141,3 +141,4 @@ game.formSubmit.addEventListener('submit', game.handleUserSubmit);
 game.init = () => {
 	game.fetchData(game.separate);
 };
+
