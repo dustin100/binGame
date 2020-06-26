@@ -16,13 +16,11 @@ game.selectedKeyword = document.querySelector('.keywordItem');
 game.formSubmit = document.querySelector('#userPick');
 game.gameContent = document.querySelector('.gameContent');
 game.gameScore = document.querySelector('.score');
-game.totalScore = 0;
 game.countDown = document.querySelector('.countDown');
+game.answerBtn = document.querySelector('.answerBtn');
+game.isPlaying = false;
+game.totalScore = 0;
 game.time = 30;
-
-game.init = () => {
-	game.fetchData(game.separate);
-};
 
 // Grabs Data and pushes into a new array
 game.fetchData = async (callback) => {
@@ -66,6 +64,7 @@ game.scoreDown = () => {
 // pull random word out of obj.keywords
 game.handleStart = () => {
 	const { generateQs, getBins, gameContent, startTimer } = game;
+	game.isPlaying = true;
 	getBins.classList.add('hide');
 	generateQs();
 	startTimer();
@@ -73,7 +72,7 @@ game.handleStart = () => {
 };
 
 game.generateQs = () => {
-	const { getRandom, greenBin, blueBin, garbage, keywordCategory } = game;
+	const { getRandom, greenBin, blueBin, garbage } = game;
 	const allKeyWords = []; //will store all keywords from selectedBin
 	const allBins = [greenBin, blueBin, garbage]; //Three bins to pick from
 	const selectedBin = getRandom(allBins); //Will pick one of the three bins at random
@@ -128,7 +127,9 @@ game.startTimer = () => {
 		game.countDown.innerHTML = game.time;
 		if (game.time <= 0) {
 			clearInterval(game.interval);
+			game.isPlaying = false;
 			// do something after timer is done prob show final score and a playagain button
+			game.answerBtn.setAttribute('disabled', true);
 			console.log(`your final score is ${game.totalScore}`);
 		}
 	}
@@ -136,3 +137,7 @@ game.startTimer = () => {
 
 game.getBins.addEventListener('click', game.handleStart);
 game.formSubmit.addEventListener('submit', game.handleUserSubmit);
+
+game.init = () => {
+	game.fetchData(game.separate);
+};

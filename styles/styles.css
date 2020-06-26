@@ -367,6 +367,10 @@ textarea {
   border: 1px solid;
 }
 
+.btn:disabled, .btn[disabled] {
+  opacity: 0.2;
+}
+
 h2 {
   font-size: 3rem;
   margin-bottom: 2rem;

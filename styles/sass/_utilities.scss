@@ -19,9 +19,13 @@
 
 	&:hover {
 		background: $main-color;
-		color:#fff;
+		color: #fff;
 	}
 	&:focus {
 		border: 1px solid;
+	}
+	&:disabled,
+	&[disabled] {
+		opacity: 0.2;
 	}
 }
