@@ -21,6 +21,7 @@ game.answerBtn = document.querySelector('.answerBtn');
 game.isPlaying = false;
 game.totalScore = 0;
 game.time = 30;
+game.highScores = [];
 
 // Grabs Data and pushes into a new array
 game.fetchData = async (callback) => {
@@ -120,6 +121,7 @@ game.checkAnswer = () => {
 
 // add timer
 game.startTimer = () => {
+	const dbRef = firebase.database().ref();
 	game.interval = setInterval(countDown, 1000);
 
 	function countDown() {
@@ -131,6 +133,13 @@ game.startTimer = () => {
 			// do something after timer is done prob show final score and a playagain button
 			game.answerBtn.setAttribute('disabled', true);
 			console.log(`your final score is ${game.totalScore}`);
+			
+			const playerResults = {
+				player: 'name goes here',
+				score: game.totalScore,
+			};
+
+				dbRef.push(playerResults);
 		}
 	}
 };
@@ -142,3 +151,50 @@ game.init = () => {
 	game.fetchData(game.separate);
 };
 
+game.firebaseConfig = {
+	apiKey: 'AIzaSyAq0FtgPYzd10Ld0-RoUXOY-6bmkJ1bXAY',
+	authDomain: 'bingame-e7541.firebaseapp.com',
+	databaseURL: 'https://bingame-e7541.firebaseio.com',
+	projectId: 'bingame-e7541',
+	storageBucket: 'bingame-e7541.appspot.com',
+	messagingSenderId: '1035272280357',
+	appId: '1:1035272280357:web:23431e9db6bd545f12e2cc',
+};
+// Initialize Firebase
+firebase.initializeApp(game.firebaseConfig);
+
+
+
+game.getHighScores = () => {
+	const dbRef = firebase.database().ref();
+
+ // listen for changes from the database
+
+	dbRef.on('value', (snapshot) => {
+		const data = snapshot.val();
+		console.log(data);
+
+		let highScores = [];
+
+		for (let key in data) {
+			highScores.push({
+				name: data[key].name,
+				score: data[key].score,
+			});
+		}
+
+		highScores.sort(function (a, b) {
+			if (a.score > b.score) {
+				return -1;
+			} else if (b.score > a.score) {
+				return 1;
+			} else {
+				return 0;
+			}
+		});
+
+		highScores = highScores.splice(0, 20);
+
+		game.highScores.push(highScores);
+	});
+};

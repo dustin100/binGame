@@ -9,3 +9,4 @@ To-dos:
 - all the styling
 - add a drag and drop option
 - find and api to show images along side words
+- make modular
