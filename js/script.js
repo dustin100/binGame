@@ -1,6 +1,7 @@
 // nameSpace
 const game = {};
 
+// loads JS after document has finished loading
 document.addEventListener('DOMContentLoaded', function (event) {
 	game.init();
 });
@@ -10,6 +11,7 @@ game.storeData = [];
 game.blueBin = [];
 game.greenBin = [];
 game.garbage = [];
+game.highScores = [];
 game.keywordCategory = '';
 game.getBins = document.querySelector('.getBins');
 game.selectedKeyword = document.querySelector('.keywordItem');
@@ -21,7 +23,6 @@ game.answerBtn = document.querySelector('.answerBtn');
 game.isPlaying = false;
 game.totalScore = 0;
 game.time = 30;
-game.highScores = [];
 
 // Grabs Data and pushes into a new array
 game.fetchData = async (callback) => {
@@ -121,7 +122,6 @@ game.checkAnswer = () => {
 
 // add timer
 game.startTimer = () => {
-	const dbRef = firebase.database().ref();
 	game.interval = setInterval(countDown, 1000);
 
 	function countDown() {
@@ -129,19 +129,55 @@ game.startTimer = () => {
 		game.countDown.innerHTML = game.time;
 		if (game.time <= 0) {
 			clearInterval(game.interval);
-			game.isPlaying = false;
-			// do something after timer is done prob show final score and a playagain button
-			game.answerBtn.setAttribute('disabled', true);
-			console.log(`your final score is ${game.totalScore}`);
-			
-			const playerResults = {
-				player: 'name goes here',
-				score: game.totalScore,
-			};
-
-				dbRef.push(playerResults);
+			// end game
+			game.endGame();
 		}
 	}
+};
+
+game.endGame = () => {
+	const dbRef = firebase.database().ref();
+	game.isPlaying = false;
+	// do something after timer is done prob show final score and a playagain button
+	game.answerBtn.setAttribute('disabled', true);
+	console.log(`your final score is ${game.totalScore}`);
+	const playerResults = {
+		player: 'name goes here',
+		score: game.totalScore,
+	};
+
+	dbRef.push(playerResults);
+};
+
+game.showScore = () => {
+
+
+
+	
+}
+
+game.getHighScores = () => {
+	const dbRef = firebase.database().ref();
+
+	// listen for changes from the database
+	dbRef.on('value', (snapshot) => {
+		const data = snapshot.val();
+		console.log(data, 'snapshot');
+
+		for (let key in data) {
+			game.highScores.push({
+				player: data[key].player,
+				score: data[key].score,
+			});
+		}
+		const list = document.querySelector('.scoreBoard');
+		game.highScores.forEach((i) => {
+			const li = document.createElement('li');
+			li.textContent = `${i.player} ${i.score}`;
+			list.appendChild(li);
+		});
+	
+	});
 };
 
 game.getBins.addEventListener('click', game.handleStart);
@@ -149,6 +185,7 @@ game.formSubmit.addEventListener('submit', game.handleUserSubmit);
 
 game.init = () => {
 	game.fetchData(game.separate);
+	game.getHighScores();
 };
 
 game.firebaseConfig = {
@@ -162,39 +199,3 @@ game.firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(game.firebaseConfig);
-
-
-
-game.getHighScores = () => {
-	const dbRef = firebase.database().ref();
-
- // listen for changes from the database
-
-	dbRef.on('value', (snapshot) => {
-		const data = snapshot.val();
-		console.log(data);
-
-		let highScores = [];
-
-		for (let key in data) {
-			highScores.push({
-				name: data[key].name,
-				score: data[key].score,
-			});
-		}
-
-		highScores.sort(function (a, b) {
-			if (a.score > b.score) {
-				return -1;
-			} else if (b.score > a.score) {
-				return 1;
-			} else {
-				return 0;
-			}
-		});
-
-		highScores = highScores.splice(0, 20);
-
-		game.highScores.push(highScores);
-	});
-};
