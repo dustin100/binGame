@@ -345,22 +345,31 @@ textarea {
   width: 90%;
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+  background: #e5e5e5;
+  color: #828282;
+}
+
 .btn {
   display: inline-block;
   border: none;
-  background: #fff;
-  color: #000;
+  background: #165788;
+  color: #fff;
   padding: 1rem 4rem;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 15px;
+  line-height: 18px;
   letter-spacing: 0.7px;
   text-transform: uppercase;
-  border: 1px solid #000;
+  border: 1px solid #165788;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
 }
 
 .btn:hover {
-  background: #000;
-  color: #fff;
+  background: #fff;
+  color: #165788;
 }
 
 .btn:focus {
@@ -369,6 +378,85 @@ textarea {
 
 .btn:disabled, .btn[disabled] {
   opacity: 0.2;
+}
+
+.homeContent {
+  text-align: center;
+}
+
+.homeContent .disclaimer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+  margin-bottom: 5rem;
+}
+
+.homeContent .disclaimer img {
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  width: 20%;
+  margin-right: 0.5rem;
+}
+
+.homeContent .disclaimer p {
+  text-align: left;
+}
+
+.homeContent h1 {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  color: #165788;
+  margin-bottom: 1rem;
+}
+
+.homeContent h2 {
+  font-size: 20px;
+  line-height: 23px;
+  color: #165788;
+  margin-bottom: 3rem;
+}
+
+.homeContent .threeBinImg,
+.homeContent .getBins {
+  margin-bottom: 3rem;
+}
+
+.homeContent .highScoresBtn {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 3rem;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.homeContent .highScoresBtn button {
+  border: none;
+  background: none;
+  color: #828282;
+}
+
+.homeContent footer {
+  background: #165788;
+  color: #e5e5e5;
+  padding: 3rem;
+}
+
+.homeContent .topText {
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.homeContent .bottomText {
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: .5rem;
+}
+
+.homeContent .appButtons {
+  padding: 2rem 0;
 }
 
 h2 {
@@ -417,9 +505,18 @@ legend {
 }
 
 .hide {
-  visibility: hidden;
+  display: none;
 }
 
 .allContent {
   text-align: center;
+}
+
+.popUpForm {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  border: 1px solid red;
 }

@@ -4,15 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./styles/styles.css">
     <title>Document</title>
 </head>
 
 <body>
+    <div class="homeContent">
+   <div class="disclaimer wrapper">
+       <img src="./imgs/exclamationTriangle.png" alt="triangle warning symbol" class="disclaimerIcon">
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut, rem dolorem officiis possimus quidem modi odit quaerat, rerum quam iusto error fugit porro, accusantium sequi quo ipsa. Aliquam, nemo consequatur.</p>
+   </div>
+   <div class="home">
+       <h1>Bin it to Win it</h1>
+       <h2>Are you a Toronto Waste Wiz or a Trash Goblin?</h2>
+       <img class="threeBinImg" src="./imgs/binGroup.png" alt="three toronto bins">
+        <button class="btn getBins">Play</button>
+        <div class="highScoresBtn">
+            <img src="./imgs/trophySolid.png" alt="gold trophy">
+            <button>VIEW HIGH SCORES</button>
+        </div>
+   </div>
+   <footer>
+<p class="topText">Visit City of TO Waste Wizard Site Download TO Waste App</p>
+<div class="appButtons">
+    <input type="image" src="./imgs/AppleAppStoreBadge.jpg" />
+    <input type="image" src="./imgs/GooglePlayBadge.jpg" />
+</div>
+<p class="bottomText">Bin it to Win it Site by Dustin Kelly.</p>
+<p class="bottomText">No affiliation to City of Toronto or TO Waste App.</p>
+   </footer>
+</div>
+
+
+
+
+
     <div class="wrapper allContent">
-        <button class="btn getBins">Play Game</button>
+       
         <div class="gameContent hide">
-            <div class="countDown">30</div>
+            <div class="countDown">45</div>
             <div>
                 <p>Score <span class="score">0</span></p>
             </div>
@@ -35,15 +68,19 @@
             </form>
         </div>
         <div>
-            <ul class = "scoreBoard">
+            <ul class="scoreBoard hide">
                 <!-- scores go here -->
 
             </ul>
         </div>
-        <form action="" class="finalPopUp"></form>
+        <div class="popUpForm hide">
+            <form action="" class="submitName">
+                <input type="text" placeholder="Your Name" name="playerName" id="playerName">
+                <button class="btn player" type="submit">Enter</button> </form>
+        </div>
     </div>
 
-   
+
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
@@ -54,7 +91,7 @@
 
 
     <script>
-       
+
     </script>
 </body>
 

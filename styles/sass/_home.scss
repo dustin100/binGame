@@ -1,0 +1,71 @@
+.homeContent {
+	text-align: center;
+
+	.disclaimer {
+		display: flex;
+		padding: 1rem;
+		margin-bottom: 5rem;
+
+		img {
+			align-self: start;
+			width: 20%;
+			margin-right: 0.5rem;
+		}
+		p {
+			text-align: left;
+		}
+	}
+
+	h1 {
+		font-weight: bold;
+		font-size: 36px;
+		line-height: 42px;
+		color: $mainColor;
+		margin-bottom: 1rem;
+	}
+	h2 {
+		font-size: 20px;
+		line-height: 23px;
+		color: $mainColor;
+		margin-bottom: 3rem;
+	}
+
+	.threeBinImg,
+	.getBins {
+		margin-bottom: 3rem;
+	}
+
+	.highScoresBtn {
+		font-family: $mainFont;
+		margin-bottom: 3rem;
+		font-weight: bold;
+		font-size: 15px;
+		line-height: 18px;
+
+		button {
+			border: none;
+			background: none;
+			color: $textColorOne;
+		}
+	}
+
+	footer {
+		background: $mainColor;
+		color: $backgroundColor;
+		padding: 3rem;
+	}
+	.topText {
+		font-size: 15px;
+		line-height: 18px;
+	}
+
+	.bottomText {
+		font-size: 12px;
+        line-height: 14px;
+        margin-bottom: .5rem;
+	}
+
+	.appButtons {
+		padding: 2rem 0;
+	}
+}

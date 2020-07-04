@@ -13,26 +13,34 @@ game.greenBin = [];
 game.garbage = [];
 game.highScores = [];
 game.keywordCategory = '';
-game.getBins = document.querySelector('.getBins');
+game.getBins = document.querySelector('.homeContent');
 game.selectedKeyword = document.querySelector('.keywordItem');
 game.formSubmit = document.querySelector('#userPick');
 game.gameContent = document.querySelector('.gameContent');
 game.gameScore = document.querySelector('.score');
 game.countDown = document.querySelector('.countDown');
 game.answerBtn = document.querySelector('.answerBtn');
+game.submitName = document.querySelector('.submitName');
+game.getName = document.querySelector('.popUpForm');
 game.isPlaying = false;
 game.totalScore = 0;
-game.time = 30;
+game.time = 45;
+game.playerName = '';
+
 
 // Grabs Data and pushes into a new array
 game.fetchData = async (callback) => {
-	const { endPoint, storeData } = game;
-	const res = await fetch(endPoint);
-	const data = await res.json();
-	data.forEach((i) => {
-		storeData.push(i);
-	});
-	callback();
+	try {
+		const { endPoint, storeData } = game;
+		const res = await fetch(endPoint);
+		const data = await res.json();
+		data.forEach((i) => {
+			storeData.push(i);
+		});
+		callback();
+	} catch (err) {
+		console.log(err);
+	}
 };
 
 // separates obj into their bin colors
@@ -122,7 +130,7 @@ game.checkAnswer = () => {
 
 // add timer
 game.startTimer = () => {
-	game.interval = setInterval(countDown, 1000);
+	game.interval = setInterval(countDown, 100);
 
 	function countDown() {
 		game.time--;
@@ -136,52 +144,67 @@ game.startTimer = () => {
 };
 
 game.endGame = () => {
-	const dbRef = firebase.database().ref();
 	game.isPlaying = false;
 	// do something after timer is done prob show final score and a playagain button
 	game.answerBtn.setAttribute('disabled', true);
 	console.log(`your final score is ${game.totalScore}`);
+	game.getName.classList.remove('hide');
+};
+
+game.addNewHighScore = () => {
+	const dbRef = firebase.database().ref();
+
 	const playerResults = {
-		player: 'name goes here',
+		player: game.playerName,
 		score: game.totalScore,
 	};
 
 	dbRef.push(playerResults);
 };
 
-game.showScore = () => {
-
-
+game.getPlayerName = (e) => {
+	e.preventDefault();
+	game.playerName = document.querySelector('#playerName').value;
+	console.log(game.playerName);
+	game.getName.classList.add('hide');
+	game.addNewHighScore()
 
 	
-}
+};
 
+// grabs scores from firebase and stores them in game.highScores
 game.getHighScores = () => {
 	const dbRef = firebase.database().ref();
-
 	// listen for changes from the database
+	
 	dbRef.on('value', (snapshot) => {
 		const data = snapshot.val();
 		console.log(data, 'snapshot');
-
+		game.highScores = []; //empty highscores so that they only appear once
 		for (let key in data) {
 			game.highScores.push({
 				player: data[key].player,
 				score: data[key].score,
 			});
 		}
-		const list = document.querySelector('.scoreBoard');
-		game.highScores.forEach((i) => {
-			const li = document.createElement('li');
-			li.textContent = `${i.player} ${i.score}`;
-			list.appendChild(li);
-		});
-	
+		game.displayScore();
 	});
+};
+
+// function to display scores
+game.displayScore = () => {
+	const list = document.querySelector('.scoreBoard');
+	const allScores = game.highScores
+		.map((i) => {
+			return `<li> ${i.player} ${i.score} </li>`;
+		})
+		.join('');
+	list.innerHTML = allScores;
 };
 
 game.getBins.addEventListener('click', game.handleStart);
 game.formSubmit.addEventListener('submit', game.handleUserSubmit);
+game.submitName.addEventListener('submit', game.getPlayerName);
 
 game.init = () => {
 	game.fetchData(game.separate);

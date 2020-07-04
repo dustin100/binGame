@@ -16,8 +16,7 @@ h2 {
 
 /* CHECKED STYLES */
 [type='radio']:checked + label img {
-    opacity: 1;
-    
+	opacity: 1;
 }
 
 /* HIDE RADIO */
@@ -31,8 +30,8 @@ h2 {
 /* IMAGE STYLES */
 [type='radio'] + label img {
 	cursor: pointer;
-    max-width: 100px;
-    opacity: 0.5;
+	max-width: 100px;
+	opacity: 0.5;
 }
 
 legend {
@@ -44,9 +43,17 @@ legend {
 }
 
 .hide {
-	visibility: hidden;
-}
+display: none;}
 
 .allContent {
 	text-align: center;
+}
+
+.popUpForm {
+	position: fixed;
+	top: 10px;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	border: 1px solid red;
 }

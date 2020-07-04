@@ -4,22 +4,30 @@
 	margin: 0 auto;
 	width: 90%;
 }
+body {
+	font-family: $mainFont;
+	background: $backgroundColor;
+	color: $textColorOne;
+}
 
 .btn {
 	display: inline-block;
 	border: none;
-	background: $light-color;
-	color: #000;
+	background: $mainColor;
+	color: $lightColor;
 	padding: 1rem 4rem;
 	text-decoration: none;
-	font-size: 2rem;
+	font-size: 15px;
+	line-height: 18px;
 	letter-spacing: 0.7px;
 	text-transform: uppercase;
-	border: 1px solid #000;
+	border: 1px solid $mainColor;
+	width: 90%;
+	font-family: $mainFont;
 
 	&:hover {
-		background: $main-color;
-		color: #fff;
+		background: $lightColor;
+		color: $mainColor;
 	}
 	&:focus {
 		border: 1px solid;
