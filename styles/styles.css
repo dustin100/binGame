@@ -380,6 +380,10 @@ body {
   opacity: 0.2;
 }
 
+.hide {
+  display: none;
+}
+
 .homeContent {
   text-align: center;
 }
@@ -392,11 +396,10 @@ body {
   margin-bottom: 5rem;
 }
 
-.homeContent .disclaimer img {
+.homeContent .disclaimer .fas {
   -ms-flex-item-align: start;
       -ms-grid-row-align: start;
       align-self: start;
-  width: 20%;
   margin-right: 0.5rem;
 }
 
@@ -438,6 +441,10 @@ body {
   color: #828282;
 }
 
+.homeContent .highScoresBtn .fas {
+  color: #e1b254;
+}
+
 .homeContent footer {
   background: #165788;
   color: #e5e5e5;
@@ -459,21 +466,52 @@ body {
   padding: 2rem 0;
 }
 
-h2 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
+.top-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 6rem;
+}
+
+.topBox {
+  padding: 1rem;
+  background: #fff;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
+  color: #666d72;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.timeBox {
+  border-right: 1px solid #666d72;
+}
+
+.keywordItem {
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 30px;
+  color: #000;
+  margin-bottom: 5rem;
 }
 
 .question {
-  font-size: 1.5rem;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
 }
 
 .question fieldset {
   padding: 1rem;
 }
 
-.question input {
-  margin-bottom: 1rem;
+label img {
+  width: 95px;
+  margin-bottom: 5rem;
 }
 
 /* CHECKED STYLES */
@@ -500,23 +538,145 @@ legend {
   margin: 0 auto;
 }
 
-.show {
-  visibility: visible;
-}
-
-.hide {
-  display: none;
-}
-
-.allContent {
+.playContent {
   text-align: center;
 }
 
 .popUpForm {
-  position: fixed;
-  top: 10px;
+  position: absolute;
   left: 0;
   width: 100%;
   text-align: center;
-  border: 1px solid red;
+  background-color: #165788;
+  left: 0;
+  bottom: 20px;
+  background-color: #165788;
+  color: #fff;
+  padding-top: 3rem;
+  height: 100%;
+}
+
+.popUpForm .fas {
+  font-size: 4rem;
+  color: #e1b254;
+  padding-top: 3rem;
+  margin-bottom: 10px;
+}
+
+.popUpForm .congrats {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 35px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.popUpForm .congrats span {
+  display: block;
+}
+
+.popUpForm input {
+  height: 35px;
+  width: 90%;
+  margin-bottom: 2rem;
+}
+
+.popUpForm input[type='text'],
+.popUpForm textarea {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+}
+
+.popUpForm .player {
+  background: #828282;
+  width: 90%;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.popUpForm .enterNameText {
+  font-size: 15px;
+  line-height: 18px;
+  margin-bottom: 2rem;
+}
+
+.popUpForm .textOne {
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+.popUpForm .finScore {
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 59px;
+}
+
+.highScoresInfo {
+  text-align: center;
+  background: #165788;
+  color: #fff;
+  padding-bottom: 2rem;
+}
+
+.highScoresInfo .fas {
+  font-size: 2em;
+  color: #e1b254;
+  padding-top: 3rem;
+  margin-bottom: 10px;
+}
+
+.highScoresInfo h2 {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.03em;
+  margin-bottom: 3rem;
+}
+
+.highScoresInfo .scoreBoard {
+  background: #4579a0;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 50px;
+  padding: 0 2rem;
+}
+
+.highScoresInfo .playerListing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.highScoresInfo .nameAndScore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.highScoresInfo .closeBox {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: .5rem;
+  background: #4579a0;
+  color: #666d72;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.highScoresInfo .closeBox:hover {
+  cursor: pointer;
 }

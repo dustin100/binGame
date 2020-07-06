@@ -6,15 +6,17 @@
 		padding: 1rem;
 		margin-bottom: 5rem;
 
-		img {
+		.fas  {
 			align-self: start;
-			width: 20%;
-			margin-right: 0.5rem;
+            margin-right: 0.5rem;
+          
 		}
 		p {
 			text-align: left;
 		}
-	}
+    }
+    
+  
 
 	h1 {
 		font-weight: bold;
@@ -46,7 +48,10 @@
 			border: none;
 			background: none;
 			color: $textColorOne;
-		}
+        }
+        .fas {
+            color: $accentOne;
+        }
 	}
 
 	footer {

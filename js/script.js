@@ -130,7 +130,7 @@ game.checkAnswer = () => {
 
 // add timer
 game.startTimer = () => {
-	game.interval = setInterval(countDown, 100);
+	game.interval = setInterval(countDown, 1000);
 
 	function countDown() {
 		game.time--;
@@ -149,6 +149,7 @@ game.endGame = () => {
 	game.answerBtn.setAttribute('disabled', true);
 	console.log(`your final score is ${game.totalScore}`);
 	game.getName.classList.remove('hide');
+	
 };
 
 game.addNewHighScore = () => {
@@ -195,8 +196,14 @@ game.getHighScores = () => {
 game.displayScore = () => {
 	const list = document.querySelector('.scoreBoard');
 	const allScores = game.highScores
-		.map((i) => {
-			return `<li> ${i.player} ${i.score} </li>`;
+		.map((i, index) => {
+			return ` <div class="playerListing">
+                <p>${index +1}.</p>
+                <div class="nameAndScore">
+                    <p>${i.player}</p>
+                    <p>${i.score}</p>
+                </div>
+            </div>`;
 		})
 		.join('');
 	list.innerHTML = allScores;

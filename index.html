@@ -7,76 +7,104 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+    <!-- font awesome -->
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css'
+        integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous' />
+
     <link rel="stylesheet" href="./styles/styles.css">
-    <title>Document</title>
+    <title>Bin it to win it</title>
 </head>
 
 <body>
-    <div class="homeContent">
-   <div class="disclaimer wrapper">
-       <img src="./imgs/exclamationTriangle.png" alt="triangle warning symbol" class="disclaimerIcon">
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut, rem dolorem officiis possimus quidem modi odit quaerat, rerum quam iusto error fugit porro, accusantium sequi quo ipsa. Aliquam, nemo consequatur.</p>
-   </div>
-   <div class="home">
-       <h1>Bin it to Win it</h1>
-       <h2>Are you a Toronto Waste Wiz or a Trash Goblin?</h2>
-       <img class="threeBinImg" src="./imgs/binGroup.png" alt="three toronto bins">
-        <button class="btn getBins">Play</button>
-        <div class="highScoresBtn">
-            <img src="./imgs/trophySolid.png" alt="gold trophy">
-            <button>VIEW HIGH SCORES</button>
+    <!-- Screen One -->
+    <div class="homeContent hide screenOne">
+        <div class="disclaimer wrapper">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Disclaimer: Info used here is correct for the City of Toronto only. Check your local facilites for
+                correct information
+                on recycling, garbage and organics.</p>
         </div>
-   </div>
-   <footer>
-<p class="topText">Visit City of TO Waste Wizard Site Download TO Waste App</p>
-<div class="appButtons">
-    <input type="image" src="./imgs/AppleAppStoreBadge.jpg" />
-    <input type="image" src="./imgs/GooglePlayBadge.jpg" />
-</div>
-<p class="bottomText">Bin it to Win it Site by Dustin Kelly.</p>
-<p class="bottomText">No affiliation to City of Toronto or TO Waste App.</p>
-   </footer>
-</div>
-
-
-
-
-
-    <div class="wrapper allContent">
-       
-        <div class="gameContent hide">
-            <div class="countDown">45</div>
-            <div>
-                <p>Score <span class="score">0</span></p>
+        <div class="home">
+            <h1>Bin it to Win it</h1>
+            <h2>Are you a Toronto Waste Wiz or a Trash Goblin?</h2>
+            <img class="threeBinImg" src="./imgs/binGroup.png" alt="three toronto bins">
+            <button class="btn getBins">Play</button>
+            <div class="highScoresBtn">
+                <i class="fas fa-trophy"></i>
+                <button>VIEW HIGH SCORES</button>
             </div>
-            <h2 class="keywordItem">KeyWord</h2>
-            <form class="question" id="userPick" method="" action="">
-                <fieldset>
-                    <legend>Which Bin Does This Go In?</legend>
-
-                    <input type="radio" name="whichBin" required value="blueBin" id="blueBin">
-                    <label for="blueBin"> <img src="./imgs/bluebin.png" alt="blue bin"></label>
-
-                    <input type="radio" name="whichBin" value="greenBin" id="greenBin">
-                    <label for="greenBin"> <img src="./imgs/greenbin.png" alt="green bin"></label>
-
-                    <input type="radio" name="whichBin" value="garbage" id="garbage">
-                    <label for="garbage"> <img src="./imgs/garbagebin.png" alt="garbage bin"></label><br>
-
-                    <button class="btn answerBtn" type="submit">Enter</button>
-                </fieldset>
-            </form>
         </div>
-        <div>
-            <ul class="scoreBoard hide">
-                <!-- scores go here -->
+        <footer>
+            <p class="topText">Visit City of TO Waste Wizard Site Download TO Waste App</p>
+            <div class="appButtons">
+                <input type="image" src="./imgs/AppleAppStoreBadge.png" />
+                <input type="image" src="./imgs/GooglePlayBadge.png" />
+            </div>
+            <p class="bottomText">Bin it to Win it Site by Dustin Kelly.</p>
+            <p class="bottomText">No affiliation to City of Toronto or TO Waste App.</p>
+        </footer>
+    </div>
 
-            </ul>
+
+
+
+    <!-- Screen Two -->
+    <div class="screenTwo playContent hide gameContent">
+
+        <div class="top-right">
+            <p class="timeBox topBox">Time <span class="countDown">45</span></p>
+            <p class="scoreBox topBox">Score <span class="score">0</span></p>
         </div>
-        <div class="popUpForm hide">
-            <form action="" class="submitName">
-                <input type="text" placeholder="Your Name" name="playerName" id="playerName">
-                <button class="btn player" type="submit">Enter</button> </form>
+
+        <h2 class="keywordItem">KeyWord</h2>
+        <form class="question" id="userPick" method="" action="">
+            <fieldset>
+                <legend>Select a bin</legend>
+
+                <input type="radio" name="whichBin" required value="blueBin" id="blueBin">
+                <label for="blueBin"> <img src="./imgs/RecycleClosed.png" alt="blue bin"></label>
+
+                <input type="radio" name="whichBin" value="greenBin" id="greenBin">
+                <label for="greenBin"> <img src="./imgs/OrganicsClosed.png" alt="green bin"></label>
+
+                <input type="radio" name="whichBin" value="garbage" id="garbage">
+                <label for="garbage"> <img src="./imgs/GarbageClosed.png" alt="garbage bin"></label><br>
+
+                <button class="btn answerBtn" type="submit">Enter</button>
+            </fieldset>
+        </form>
+    </div>
+
+
+
+    <!-- Screen Three -->
+    <div class="popUpForm hide screenThree">
+        <i class="fas fa-trophy"></i>
+        <p class="textOne">High Score</p>
+        <p class="finScore"><span class="score">0</span></p>
+        <p class="textOne">points</p>
+        <h2 class="congrats"><span> Congratulations!</span> You’re a Toronto Waste Wiz!</h2>
+        <p class="enterNameText">Enter your name below:</p>
+        <form action="" class="submitName">
+            <input type="text" placeholder="Your Name" minlength="2" maxlength="20" name="playerName" id="playerName">
+            <button class="btn player" type="submit">Submit</button> </form>
+    </div>
+
+
+
+    <!--Screen Four -->
+    <div class="highScoresInfo  screenFour">
+        <p class="closeBox">X</p>
+        <i class="fas fa-trophy"></i>
+        <h2>BIN IT TO WIN IT HIGH SCORES</h2>
+        <div class="scoreBoard  wrapper">
+            <div class="playerListing">
+                <p>1.</p>
+                <div class="nameAndScore">
+                    <p>Dustin Kelly</p>
+                    <p>100</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -86,13 +114,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
     <script src="./js/script.js"></script>
-
-
-
-
-    <script>
-
-    </script>
 </body>
 
 </html>

@@ -1,0 +1,60 @@
+.highScoresInfo {
+	text-align: center;
+	background: $mainColor;
+    color: #fff;
+    padding-bottom: 2rem;
+	.fas {
+		font-size: 2em;
+		color: $accentOne;
+		padding-top: 3rem;
+		margin-bottom: 10px;
+	}
+
+	h2 {
+		font-weight: bold;
+		font-size: 20px;
+		line-height: 23px;
+		letter-spacing: 0.03em;
+        margin-bottom: 3rem;
+        
+	}
+
+
+
+	.scoreBoard {
+		background: #4579a0;
+		width: 90%;
+        margin: 0 auto;
+        font-size: 15px;
+        line-height: 50px;
+        padding: 0 2rem;
+		
+	}
+
+	.playerListing {
+		display: flex;
+		justify-content: space-between;
+	}
+	.nameAndScore {
+        display: flex;
+        width: 80%;
+		justify-content: space-between;
+    }
+    
+    .closeBox {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: .5rem;
+        background: #4579a0;
+        color:$darkColor;
+        font-size: 15px;
+        font-weight: bold; 
+        &:hover {
+            cursor: pointer;
+            
+        }
+
+    }
+    
+}
