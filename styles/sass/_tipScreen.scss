@@ -2,9 +2,9 @@
 	background: $accentOne;
 	color: #000;
 	position: absolute;
-	bottom: 20px;
 	left: 0;
-	right: 0;
+    right: 0;
+    top: 20px;
 	text-align: center;
 	width: 90%;
 	margin: 0 auto;
@@ -37,5 +37,15 @@
     }
     .appButtons {
 		padding: 2rem 0;
-	}
+    }
+    .buttonWrapper {
+        position: relative;
+    }
+
+    .playAgain {
+        position: relative;
+        bottom: -60px;
+        left: 0;
+        width: 100%;
+    }
 }

@@ -56,8 +56,10 @@
 
         <h2 class="keywordItem">KeyWord</h2>
         <form class="question" id="userPick" method="" action="">
+                <img class="correctWrong" src="./imgs/no_image.png" alt="Correct or Wrong Answer">
+
             <fieldset>
-                <legend>Select a bin</legend>
+                <p>Select a bin</p>
 
                 <input type="radio" name="whichBin" required value="blueBin" id="blueBin">
                 <label for="blueBin"> <img src="./imgs/RecycleClosed.png" alt="blue bin"></label>
@@ -84,7 +86,7 @@
         <h2 class="congrats"><span> Congratulations!</span> You’re a Toronto Waste Wiz!</h2>
         <p class="enterNameText">Enter your name below:</p>
         <form action="" class="submitName">
-            <input type="text" placeholder="Your Name" minlength="2" maxlength="20" name="playerName" id="playerName">
+            <input type="text" placeholder="Your Name" name="playerName" id="playerName">
             <button class="btn player" type="submit">Submit</button> </form>
     </div>
 
@@ -112,20 +114,25 @@
     <div class="screenFive hide wasteTip wrapper">
         <div class="tipContainer ">
             <div class="tipChange">
-            <h2>Waste Tip:</h2>
-            <h3>Paper coffee cups</h3>
-            <img src="./imgs/trashTip.png" alt="trash tips">
-            <p class="tipText">Place Tim Hortons and other paper hot beverage cups in the garbage bin.
-                The plastic lining and dyes on these paper cups make them difficult to recycle at this time. Non-black
-                plastic lids and
-                paper sleeves should be removed and placed in the Blue Bin.</p>
-                </div>
+                <h2>Waste Tip:</h2>
+                <h3>Paper coffee cups</h3>
+                <img src="./imgs/trashTip.png" alt="trash tips">
+                <p class="tipText">Place Tim Hortons and other paper hot beverage cups in the garbage bin.
+                    The plastic lining and dyes on these paper cups make them difficult to recycle at this time.
+                    Non-black
+                    plastic lids and
+                    paper sleeves should be removed and placed in the Blue Bin.</p>
+            </div>
             <p class="moreInfo">For more tips and info visit the City of TO Waste Wizard site or download the TO Waste
                 App.</p>
             <div class="appButtons">
                 <input type="image" src="./imgs/AppleAppStoreBadge.png" />
                 <input type="image" src="./imgs/GooglePlayBadge.png" />
             </div>
+            <div class="buttonWrapper">
+                <button class="btn playAgain">Play Again</button>
+            </div>
+
         </div>
     </div>
 

@@ -467,7 +467,14 @@ body {
   padding: 2rem 0;
 }
 
-.top-right {
+.playContent {
+  text-align: center;
+  /* CHECKED STYLES */
+  /* HIDE RADIO */
+  /* IMAGE STYLES */
+}
+
+.playContent .top-right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -477,7 +484,7 @@ body {
   margin-bottom: 6rem;
 }
 
-.topBox {
+.playContent .topBox {
   padding: 1rem;
   background: #fff;
   font-weight: bold;
@@ -488,11 +495,11 @@ body {
   text-transform: uppercase;
 }
 
-.timeBox {
+.playContent .timeBox {
   border-right: 1px solid #666d72;
 }
 
-.keywordItem {
+.playContent .keywordItem {
   font-weight: bold;
   font-size: 26px;
   line-height: 30px;
@@ -500,47 +507,46 @@ body {
   margin-bottom: 5rem;
 }
 
-.question {
+.playContent .question {
   font-weight: bold;
   font-size: 15px;
   line-height: 18px;
 }
 
-.question fieldset {
+.playContent .question fieldset {
   padding: 1rem;
 }
 
-label img {
+.playContent label img {
   width: 95px;
   margin-bottom: 5rem;
 }
 
-/* CHECKED STYLES */
-[type='radio']:checked + label img {
+.playContent [type='radio']:checked + label img {
   opacity: 1;
 }
 
-/* HIDE RADIO */
-[type='radio'] {
+.playContent [type='radio'] {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* IMAGE STYLES */
-[type='radio'] + label img {
+.playContent [type='radio'] + label img {
   cursor: pointer;
   max-width: 100px;
   opacity: 0.5;
 }
 
-legend {
-  margin: 0 auto;
+.playContent .correctWrong {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
 }
 
-.playContent {
-  text-align: center;
+.playContent .correctWrong.show {
+  opacity: 1;
 }
 
 .popUpForm {
@@ -688,9 +694,9 @@ legend {
   background: #e1b254;
   color: #000;
   position: absolute;
-  bottom: 20px;
   left: 0;
   right: 0;
+  top: 20px;
   text-align: center;
   width: 90%;
   margin: 0 auto;
@@ -726,4 +732,15 @@ legend {
 
 .tipContainer .appButtons {
   padding: 2rem 0;
+}
+
+.tipContainer .buttonWrapper {
+  position: relative;
+}
+
+.tipContainer .playAgain {
+  position: relative;
+  bottom: -60px;
+  left: 0;
+  width: 100%;
 }

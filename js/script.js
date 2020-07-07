@@ -13,8 +13,9 @@ game.greenBin = [];
 game.garbage = [];
 game.highScores = [];
 game.keywordCategory = '';
-game.getBins = document.querySelector('.homeContent');
+game.getBins = document.querySelector('.getBins');
 game.selectedKeyword = document.querySelector('.keywordItem');
+game.homeContent = document.querySelector('.homeContent');
 game.formSubmit = document.querySelector('#userPick');
 game.gameContent = document.querySelector('.gameContent');
 game.gameScore = document.querySelector('.score');
@@ -26,6 +27,7 @@ game.submitName = document.querySelector('.submitName');
 game.getName = document.querySelector('.popUpForm');
 game.highScoresInfo = document.querySelector('.highScoresInfo');
 game.wasteTip = document.querySelector('.wasteTip');
+game.playAgain = document.querySelector('.playAgain');
 game.isPlaying = false;
 game.totalScore = 0;
 game.time = 45;
@@ -78,7 +80,7 @@ game.scoreDown = () => {
 game.handleStart = () => {
 	const { generateQs, getBins, gameContent, startTimer } = game;
 	game.isPlaying = true;
-	getBins.classList.add('hide');
+	game.homeContent.classList.add('hide');
 	generateQs();
 	startTimer();
 	gameContent.classList.remove('hide');
@@ -113,6 +115,8 @@ game.handleUserSubmit = (e) => {
 };
 
 game.checkAnswer = () => {
+	const right = `./imgs/CorrectAnswer.png`;
+	const wrong = `./imgs/wrongAnswer.png`;
 	const {
 		userSelection,
 		keywordCategory,
@@ -125,15 +129,17 @@ game.checkAnswer = () => {
 	if (us === kw) {
 		generateQs();
 		scoreUp();
+		game.displayRightWrong(right);
+
 	} else {
-		console.log('wrong');
+		game.displayRightWrong(wrong);
 		scoreDown();
 	}
 };
 
 // add timer
 game.startTimer = () => {
-	game.interval = setInterval(countDown, 100);
+	game.interval = setInterval(countDown, 1000);
 
 	function countDown() {
 		game.time--;
@@ -148,7 +154,6 @@ game.startTimer = () => {
 
 game.endGame = () => {
 	game.isPlaying = false;
-	game.answerBtn.setAttribute('disabled', true);
 	game.gameContent.classList.add('hide');
 	game.getName.classList.remove('hide');
 	game.finalScore.innerHTML = game.totalScore;
@@ -222,16 +227,37 @@ game.displayScore = () => {
 game.handleCloseScoreBox = () => {
 	game.highScoresInfo.classList.add('hide');
 	game.wasteTip.classList.remove('hide');
-	game.gameContent.classList.remove('hide');
+	game.getTip();
+};
 
+game.displayRightWrong = (url) => {
+	const img = document.querySelector('.correctWrong');
+	img.src = url;
+	img.classList.add('show');
+	 setTimeout(flash, 500);
+	function flash() {
+		img.classList.remove('show');
+	}
+}
 
+game.newGame = () => {
+	game.reset();
+	game.wasteTip.classList.add('hide');
+	game.handleStart();
+	game.isPlaying = true;
+};
 
+game.reset = () => {
+	game.keywordCategory = '';
+	game.totalScore = 0;
+	game.time = 45;
 };
 
 game.getBins.addEventListener('click', game.handleStart);
 game.formSubmit.addEventListener('submit', game.handleUserSubmit);
 game.submitName.addEventListener('submit', game.getPlayerName);
 game.closeBox.addEventListener('click', game.handleCloseScoreBox);
+game.playAgain.addEventListener('click', game.newGame);
 
 game.init = () => {
 	game.fetchData(game.separate);
