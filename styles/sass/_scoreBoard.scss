@@ -1,8 +1,12 @@
+
+
 .highScoresInfo {
+    position: relative;
 	text-align: center;
 	background: $mainColor;
     color: #fff;
     padding-bottom: 2rem;
+    
 	.fas {
 		font-size: 2em;
 		color: $accentOne;
@@ -28,6 +32,7 @@
         font-size: 15px;
         line-height: 50px;
         padding: 0 2rem;
+        text-transform: capitalize;
 		
 	}
 
@@ -52,7 +57,7 @@
         font-weight: bold; 
         &:hover {
             cursor: pointer;
-            
+
         }
 
     }

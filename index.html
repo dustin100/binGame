@@ -17,12 +17,11 @@
 
 <body>
     <!-- Screen One -->
-    <div class="homeContent hide screenOne">
+    <div class="homeContent screenOne">
         <div class="disclaimer wrapper">
             <i class="fas fa-exclamation-triangle"></i>
-            <p>Disclaimer: Info used here is correct for the City of Toronto only. Check your local facilites for
-                correct information
-                on recycling, garbage and organics.</p>
+            <p>Disclaimer: Info used here is correct for the City of Toronto only. Check your local facilities for
+                correct information on recycling, garbage and organics.</p>
         </div>
         <div class="home">
             <h1>Bin it to Win it</h1>
@@ -50,7 +49,6 @@
 
     <!-- Screen Two -->
     <div class="screenTwo playContent hide gameContent">
-
         <div class="top-right">
             <p class="timeBox topBox">Time <span class="countDown">45</span></p>
             <p class="scoreBox topBox">Score <span class="score">0</span></p>
@@ -81,7 +79,7 @@
     <div class="popUpForm hide screenThree">
         <i class="fas fa-trophy"></i>
         <p class="textOne">High Score</p>
-        <p class="finScore"><span class="score">0</span></p>
+        <p class="finScore"><span class="finalScore">0</span></p>
         <p class="textOne">points</p>
         <h2 class="congrats"><span> Congratulations!</span> You’re a Toronto Waste Wiz!</h2>
         <p class="enterNameText">Enter your name below:</p>
@@ -93,7 +91,8 @@
 
 
     <!--Screen Four -->
-    <div class="highScoresInfo  screenFour">
+
+    <div class="highScoresInfo  hide screenFour">
         <p class="closeBox">X</p>
         <i class="fas fa-trophy"></i>
         <h2>BIN IT TO WIN IT HIGH SCORES</h2>
@@ -104,6 +103,28 @@
                     <p>Dustin Kelly</p>
                     <p>100</p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Screen Five -->
+    <div class="screenFive hide wasteTip wrapper">
+        <div class="tipContainer ">
+            <div class="tipChange">
+            <h2>Waste Tip:</h2>
+            <h3>Paper coffee cups</h3>
+            <img src="./imgs/trashTip.png" alt="trash tips">
+            <p class="tipText">Place Tim Hortons and other paper hot beverage cups in the garbage bin.
+                The plastic lining and dyes on these paper cups make them difficult to recycle at this time. Non-black
+                plastic lids and
+                paper sleeves should be removed and placed in the Blue Bin.</p>
+                </div>
+            <p class="moreInfo">For more tips and info visit the City of TO Waste Wizard site or download the TO Waste
+                App.</p>
+            <div class="appButtons">
+                <input type="image" src="./imgs/AppleAppStoreBadge.png" />
+                <input type="image" src="./imgs/GooglePlayBadge.png" />
             </div>
         </div>
     </div>

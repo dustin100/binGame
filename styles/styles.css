@@ -386,6 +386,7 @@ body {
 
 .homeContent {
   text-align: center;
+  position: relative;
 }
 
 .homeContent .disclaimer {
@@ -617,6 +618,7 @@ legend {
 }
 
 .highScoresInfo {
+  position: relative;
   text-align: center;
   background: #165788;
   color: #fff;
@@ -645,6 +647,7 @@ legend {
   font-size: 15px;
   line-height: 50px;
   padding: 0 2rem;
+  text-transform: capitalize;
 }
 
 .highScoresInfo .playerListing {
@@ -679,4 +682,48 @@ legend {
 
 .highScoresInfo .closeBox:hover {
   cursor: pointer;
+}
+
+.tipContainer {
+  background: #e1b254;
+  color: #000;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.tipContainer h2,
+.tipContainer h3 {
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 29px;
+}
+
+.tipContainer h2 {
+  padding-top: 1rem;
+}
+
+.tipContainer h3 {
+  padding-bottom: 2rem;
+}
+
+.tipContainer .tipText {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 1rem;
+}
+
+.tipContainer .moreInfo {
+  font-size: 12px;
+  line-height: 14px;
+  padding: 1rem 1rem .1rem 1rem;
+}
+
+.tipContainer .appButtons {
+  padding: 2rem 0;
 }

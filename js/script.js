@@ -18,15 +18,18 @@ game.selectedKeyword = document.querySelector('.keywordItem');
 game.formSubmit = document.querySelector('#userPick');
 game.gameContent = document.querySelector('.gameContent');
 game.gameScore = document.querySelector('.score');
+game.finalScore = document.querySelector('.finalScore');
+game.closeBox = document.querySelector('.closeBox');
 game.countDown = document.querySelector('.countDown');
 game.answerBtn = document.querySelector('.answerBtn');
 game.submitName = document.querySelector('.submitName');
 game.getName = document.querySelector('.popUpForm');
+game.highScoresInfo = document.querySelector('.highScoresInfo');
+game.wasteTip = document.querySelector('.wasteTip');
 game.isPlaying = false;
 game.totalScore = 0;
 game.time = 45;
 game.playerName = '';
-
 
 // Grabs Data and pushes into a new array
 game.fetchData = async (callback) => {
@@ -130,7 +133,7 @@ game.checkAnswer = () => {
 
 // add timer
 game.startTimer = () => {
-	game.interval = setInterval(countDown, 1000);
+	game.interval = setInterval(countDown, 100);
 
 	function countDown() {
 		game.time--;
@@ -145,16 +148,14 @@ game.startTimer = () => {
 
 game.endGame = () => {
 	game.isPlaying = false;
-	// do something after timer is done prob show final score and a playagain button
 	game.answerBtn.setAttribute('disabled', true);
-	console.log(`your final score is ${game.totalScore}`);
+	game.gameContent.classList.add('hide');
 	game.getName.classList.remove('hide');
-	
+	game.finalScore.innerHTML = game.totalScore;
 };
 
 game.addNewHighScore = () => {
 	const dbRef = firebase.database().ref();
-
 	const playerResults = {
 		player: game.playerName,
 		score: game.totalScore,
@@ -168,26 +169,35 @@ game.getPlayerName = (e) => {
 	game.playerName = document.querySelector('#playerName').value;
 	console.log(game.playerName);
 	game.getName.classList.add('hide');
-	game.addNewHighScore()
-
-	
+	game.addNewHighScore();
+	game.highScoresInfo.classList.remove('hide');
 };
 
 // grabs scores from firebase and stores them in game.highScores
 game.getHighScores = () => {
 	const dbRef = firebase.database().ref();
 	// listen for changes from the database
-	
+
 	dbRef.on('value', (snapshot) => {
 		const data = snapshot.val();
-		console.log(data, 'snapshot');
-		game.highScores = []; //empty highscores so that they only appear once
+		game.highScores = []; //empty high scores so that they only appear once
 		for (let key in data) {
 			game.highScores.push({
-				player: data[key].player,
+				player: data[key].player.toLowerCase(),
 				score: data[key].score,
 			});
 		}
+		game.highScores.sort(function (a, b) {
+			if (a.score > b.score) {
+				return -1;
+			} else if (b.score > a.score) {
+				return 1;
+			} else {
+				return 0;
+			}
+		});
+
+		game.highScores = game.highScores.splice(0, 10);
 		game.displayScore();
 	});
 };
@@ -198,7 +208,7 @@ game.displayScore = () => {
 	const allScores = game.highScores
 		.map((i, index) => {
 			return ` <div class="playerListing">
-                <p>${index +1}.</p>
+                <p>${index + 1}.</p>
                 <div class="nameAndScore">
                     <p>${i.player}</p>
                     <p>${i.score}</p>
@@ -209,9 +219,19 @@ game.displayScore = () => {
 	list.innerHTML = allScores;
 };
 
+game.handleCloseScoreBox = () => {
+	game.highScoresInfo.classList.add('hide');
+	game.wasteTip.classList.remove('hide');
+	game.gameContent.classList.remove('hide');
+
+
+
+};
+
 game.getBins.addEventListener('click', game.handleStart);
 game.formSubmit.addEventListener('submit', game.handleUserSubmit);
 game.submitName.addEventListener('submit', game.getPlayerName);
+game.closeBox.addEventListener('click', game.handleCloseScoreBox);
 
 game.init = () => {
 	game.fetchData(game.separate);
@@ -229,3 +249,58 @@ game.firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(game.firebaseConfig);
+
+game.getTip = () => {
+	const storeTip = game.getRandom(game.tips);
+	const insertTip = document.querySelector('.tipChange');
+	insertTip.innerHTML = `<h2>Waste Tip:</h2>
+            <h3>${storeTip.tip}</h3>
+            <img src="${storeTip.img}" alt="trash tips">
+			<p class="tipText">${storeTip.des}</p>`;
+	console.log(insertTip);
+};
+
+// Tips Data
+game.tips = [
+	{
+		tip: 'Paper coffee cups',
+		img: './imgs/trashTip.png',
+		des: `Place Tim Hortons and other paper hot beverage cups in the garbage bin. 
+The plastic lining and dyes on these paper cups make them difficult to recycle at this time. Non-black plastic lids and paper sleeves should be removed and placed in the Blue Bin.`,
+	},
+	{
+		tip: 'Clothing and textiles',
+		img: './imgs/trashTip.png',
+		des: `Old clothes, shoes, blankets, and curtains don’t belong in the Blue Bin. They can get caught in sorting machines, damage equipment and cause workplace injuries at the recycling facility. If your items can’t be donated, put them in the garbage.`,
+	},
+	{
+		tip: 'Black plastic',
+		img: './imgs/trashTip.png',
+		des: `Black plastic of any kind, such as take-out containers and black garbage bags aren’t recyclable. Black plastic cannot be sorted mechanically at the recycling facility and there is no market for the volume of black plastic the city generates. Please dispose of all black plastic in the garbage.`,
+	},
+	{
+		tip: 'Clean containers only',
+		img: './imgs/recycleTip.png',
+		des: ` Remove food, liquids or other contents and rinse clean before recycling. When you don’t, the residue from items like jars and take-out containers get soaked up by paper and can ruin large batches of otherwise good recyclables.`,
+	},
+	{
+		tip: 'Compact fluorescent bulbs, oil, batteries, etc.',
+		img: './imgs/hazardousWasteTip.png',
+		des: `Household hazardous waste items must never be put in recycling or garbage. Take these items to a drop-off depot or call the Toxic Taxi for free pick-up. Not sure if you have hazardous waste? Use the Waste Wizard site or app to check! `,
+	},
+	{
+		tip: 'Corrugated cardboard',
+		img: './imgs/recycleTip.png',
+		des: `Clean, unwaxed, flattened corrugated cardboard goes in the recycling bin. Pizza boxes must be empty; remove over-wrap from water/soft drink cases, recycle separately.`,
+	},
+	{
+		tip: 'Food and organic waste',
+		img: './imgs/greenTip.png',
+		des: `Food scraps like apple cores, eggshells or expired leftovers belong in your Green Bin. When you mistakenly toss food scraps in your Blue Bin, food residue and particles get soaked up by paper and can ruin large batches of otherwise good recyclables.`,
+	},
+	{
+		tip: 'Chains, hoses and electrical cords',
+		img: './imgs/trashTip.png',
+		des: `These do not go in your Blue Bin. They can get tangled in sorting machines, damage equipment and cause workplace injuries at the recycling facility. See if your local electronics store has a recycling program. Throw unwanted cords, hoses and cables in your garbage.`,
+	},
+];
