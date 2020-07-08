@@ -32,12 +32,13 @@ game.isPlaying = false;
 game.totalScore = 0;
 game.time = 45;
 game.playerName = '';
+game.proxy = `https://cors-anywhere.herokuapp.com/`;
 
 // Grabs Data and pushes into a new array
 game.fetchData = async (callback) => {
 	try {
-		const { endPoint, storeData } = game;
-		const res = await fetch(endPoint);
+		const { endPoint, storeData, proxy } = game;
+		const res = await fetch(`${proxy}${endPoint}`);
 		const data = await res.json();
 		data.forEach((i) => {
 			storeData.push(i);
