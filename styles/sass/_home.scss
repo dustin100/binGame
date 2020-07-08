@@ -1,24 +1,19 @@
 .homeContent {
 	text-align: center;
-	position: relative;
-	
 
 	.disclaimer {
 		display: flex;
-		padding: 1rem;
+		padding: 3rem 1rem 1rem 1rem;
 		margin-bottom: 5rem;
 
-		.fas  {
+		.fas {
 			align-self: start;
-            margin-right: 0.5rem;
-          
+			margin-right: 0.5rem;
 		}
 		p {
 			text-align: left;
 		}
-    }
-    
-  
+	}
 
 	h1 {
 		font-weight: bold;
@@ -50,16 +45,20 @@
 			border: none;
 			background: none;
 			color: $textColorOne;
-        }
-        .fas {
-            color: $accentOne;
-        }
+		}
+		.fas {
+			color: $accentOne;
+		}
 	}
 
 	footer {
 		background: $mainColor;
 		color: $backgroundColor;
 		padding: 3rem;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
 	}
 	.topText {
 		font-size: 15px;
@@ -68,8 +67,8 @@
 
 	.bottomText {
 		font-size: 12px;
-        line-height: 14px;
-        margin-bottom: .5rem;
+		line-height: 14px;
+		margin-bottom: 0.5rem;
 	}
 
 	.appButtons {

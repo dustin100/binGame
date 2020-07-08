@@ -347,6 +347,20 @@ textarea {
 
 body {
   font-family: "Roboto", sans-serif;
+}
+
+.screenOne,
+.screenTwo,
+.screenThree,
+.screenFour,
+.screenFive {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 500px;
+  margin: auto;
   background: #e5e5e5;
   color: #828282;
 }
@@ -386,14 +400,13 @@ body {
 
 .homeContent {
   text-align: center;
-  position: relative;
 }
 
 .homeContent .disclaimer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
+  padding: 3rem 1rem 1rem 1rem;
   margin-bottom: 5rem;
 }
 
@@ -450,6 +463,10 @@ body {
   background: #165788;
   color: #e5e5e5;
   padding: 3rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .homeContent .topText {
@@ -460,7 +477,7 @@ body {
 .homeContent .bottomText {
   font-size: 12px;
   line-height: 14px;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .homeContent .appButtons {
@@ -624,7 +641,6 @@ body {
 }
 
 .highScoresInfo {
-  position: relative;
   text-align: center;
   background: #165788;
   color: #fff;
