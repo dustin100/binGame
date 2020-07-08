@@ -1,11 +1,9 @@
-
-
 .highScoresInfo {
 	text-align: center;
 	background: $mainColor;
-    color: #fff;
-    padding-bottom: 2rem;
-    
+	color: #fff;
+	padding-bottom: 2rem;
+
 	.fas {
 		font-size: 2em;
 		color: $accentOne;
@@ -18,21 +16,17 @@
 		font-size: 2rem;
 		line-height: 2.3rem;
 		letter-spacing: 0.03em;
-        margin-bottom: 3rem;
-        
+		margin-bottom: 3rem;
 	}
-
-
 
 	.scoreBoard {
 		background: #4579a0;
 		width: 90%;
-        margin: 0 auto;
-        font-size: 1.5rem;
-        line-height: 5rem;
-        padding: 0 2rem;
-        text-transform: capitalize;
-		
+		margin: 0 auto;
+		font-size: 1.5rem;
+		line-height: 5rem;
+		padding: 0 2rem;
+		text-transform: capitalize;
 	}
 
 	.playerListing {
@@ -40,25 +34,22 @@
 		justify-content: space-between;
 	}
 	.nameAndScore {
-        display: flex;
-        width: 80%;
+		display: flex;
+		width: 80%;
 		justify-content: space-between;
-    }
-    
-    .closeBox {
-        position: absolute;
-        right: 0;
-        top: 0;
-        padding: .5rem;
-        background: #4579a0;
-        color:$darkColor;
-        font-size: 1.5rem;
-        font-weight: bold; 
-        &:hover {
-            cursor: pointer;
+	}
 
-        }
-
-    }
-    
+	.closeBox {
+		position: absolute;
+		right: 0;
+		top: 0;
+		padding: 1rem;
+		background: #4579a0;
+		color: #fff;
+		font-size: 1.5rem;
+		font-weight: bold;
+		&:hover {
+			cursor: pointer;
+		}
+	}
 }

@@ -695,9 +695,9 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  padding: .5rem;
+  padding: 1rem;
   background: #4579a0;
-  color: #666d72;
+  color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
 }
