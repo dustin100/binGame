@@ -5,26 +5,26 @@
 	text-align: center;
 	background-color: $mainColor;
 	left: 0;
-	bottom: 20px;
+	bottom: 2rem;
 	background-color: #165788;
-    color: #fff;
-    padding-top: 3rem;
+	color: #fff;
+	padding-top: 3rem;
 	height: 100%;
 
 	.fas {
 		font-size: 4rem;
 		color: $accentOne;
 		padding-top: 3rem;
-		margin-bottom: 10px;
+		margin-bottom: 1rem;
 	}
 
 	.congrats {
 		font-weight: bold;
-		font-size: 30px;
-		line-height: 35px;
-		padding:  1rem;
-        margin-bottom: 2rem;
-        margin-top: 3rem;
+		font-size: 3rem;
+		line-height: 3.5rem;
+		padding: 1rem;
+		margin-bottom: 2rem;
+		margin-top: 3rem;
 
 		span {
 			display: block;
@@ -32,7 +32,7 @@
 	}
 
 	input {
-		height: 35px;
+		height: 3.5rem;
 		width: 90%;
 		margin-bottom: 2rem;
 	}
@@ -47,26 +47,25 @@
 		width: 90%;
 		border: none;
 		font-weight: bold;
-		font-size: 15px;
-		line-height: 18px;
+		font-size: 1.5rem;
+		line-height: 1.8rem;
 	}
 
 	.enterNameText {
-		font-size: 15px;
-		line-height: 18px;
+		font-size: 1.5rem;
+		line-height: 1.8rem;
 		margin-bottom: 2rem;
 	}
 	.textOne {
 		font-weight: bold;
-		font-size: 15px;
-		line-height: 18px;
-        text-transform: uppercase;
-        
+		font-size: 1.5rem;
+		line-height: 1.8rem;
+		text-transform: uppercase;
 	}
 
 	.finScore {
 		font-weight: bold;
-		font-size: 50px;
-		line-height: 59px;
+		font-size: 5rem;
+		line-height: 5.9rem;
 	}
 }

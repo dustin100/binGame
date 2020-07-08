@@ -10,13 +10,13 @@
 		font-size: 2em;
 		color: $accentOne;
 		padding-top: 3rem;
-		margin-bottom: 10px;
+		margin-bottom: 1rem;
 	}
 
 	h2 {
 		font-weight: bold;
-		font-size: 20px;
-		line-height: 23px;
+		font-size: 2rem;
+		line-height: 2.3rem;
 		letter-spacing: 0.03em;
         margin-bottom: 3rem;
         
@@ -28,8 +28,8 @@
 		background: #4579a0;
 		width: 90%;
         margin: 0 auto;
-        font-size: 15px;
-        line-height: 50px;
+        font-size: 1.5rem;
+        line-height: 5rem;
         padding: 0 2rem;
         text-transform: capitalize;
 		
@@ -52,7 +52,7 @@
         padding: .5rem;
         background: #4579a0;
         color:$darkColor;
-        font-size: 15px;
+        font-size: 1.5rem;
         font-weight: bold; 
         &:hover {
             cursor: pointer;

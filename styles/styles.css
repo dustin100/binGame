@@ -372,8 +372,8 @@ body {
   color: #fff;
   padding: 1rem 4rem;
   text-decoration: none;
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
   letter-spacing: 0.7px;
   text-transform: uppercase;
   border: 1px solid #165788;
@@ -423,15 +423,15 @@ body {
 
 .homeContent h1 {
   font-weight: bold;
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 3.6rem;
+  line-height: 4.2rem;
   color: #165788;
   margin-bottom: 1rem;
 }
 
 .homeContent h2 {
-  font-size: 20px;
-  line-height: 23px;
+  font-size: 2rem;
+  line-height: 2.3rem;
   color: #165788;
   margin-bottom: 3rem;
 }
@@ -445,8 +445,8 @@ body {
   font-family: "Roboto", sans-serif;
   margin-bottom: 3rem;
   font-weight: bold;
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
 }
 
 .homeContent .highScoresBtn button {
@@ -470,13 +470,13 @@ body {
 }
 
 .homeContent .topText {
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
 }
 
 .homeContent .bottomText {
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
   margin-bottom: 0.5rem;
 }
 
@@ -505,8 +505,8 @@ body {
   padding: 1rem;
   background: #fff;
   font-weight: bold;
-  font-size: 10px;
-  line-height: 12px;
+  font-size: 1rem;
+  line-height: 1.2rem;
   color: #666d72;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -518,16 +518,16 @@ body {
 
 .playContent .keywordItem {
   font-weight: bold;
-  font-size: 26px;
-  line-height: 30px;
+  font-size: 2.6rem;
+  line-height: 3rem;
   color: #000;
   margin-bottom: 5rem;
 }
 
 .playContent .question {
   font-weight: bold;
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
 }
 
 .playContent .question fieldset {
@@ -573,7 +573,7 @@ body {
   text-align: center;
   background-color: #165788;
   left: 0;
-  bottom: 20px;
+  bottom: 2rem;
   background-color: #165788;
   color: #fff;
   padding-top: 3rem;
@@ -584,13 +584,13 @@ body {
   font-size: 4rem;
   color: #e1b254;
   padding-top: 3rem;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .popUpForm .congrats {
   font-weight: bold;
-  font-size: 30px;
-  line-height: 35px;
+  font-size: 3rem;
+  line-height: 3.5rem;
   padding: 1rem;
   margin-bottom: 2rem;
   margin-top: 3rem;
@@ -601,7 +601,7 @@ body {
 }
 
 .popUpForm input {
-  height: 35px;
+  height: 3.5rem;
   width: 90%;
   margin-bottom: 2rem;
 }
@@ -617,27 +617,27 @@ body {
   width: 90%;
   border: none;
   font-weight: bold;
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
 }
 
 .popUpForm .enterNameText {
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
   margin-bottom: 2rem;
 }
 
 .popUpForm .textOne {
   font-weight: bold;
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
   text-transform: uppercase;
 }
 
 .popUpForm .finScore {
   font-weight: bold;
-  font-size: 50px;
-  line-height: 59px;
+  font-size: 5rem;
+  line-height: 5.9rem;
 }
 
 .highScoresInfo {
@@ -651,13 +651,13 @@ body {
   font-size: 2em;
   color: #e1b254;
   padding-top: 3rem;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .highScoresInfo h2 {
   font-weight: bold;
-  font-size: 20px;
-  line-height: 23px;
+  font-size: 2rem;
+  line-height: 2.3rem;
   letter-spacing: 0.03em;
   margin-bottom: 3rem;
 }
@@ -666,8 +666,8 @@ body {
   background: #4579a0;
   width: 90%;
   margin: 0 auto;
-  font-size: 15px;
-  line-height: 50px;
+  font-size: 1.5rem;
+  line-height: 5rem;
   padding: 0 2rem;
   text-transform: capitalize;
 }
@@ -698,7 +698,7 @@ body {
   padding: .5rem;
   background: #4579a0;
   color: #666d72;
-  font-size: 15px;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -712,7 +712,7 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  top: 20px;
+  top: 2rem;
   text-align: center;
   width: 90%;
   margin: 0 auto;
@@ -721,8 +721,8 @@ body {
 .tipContainer h2,
 .tipContainer h3 {
   font-weight: bold;
-  font-size: 25px;
-  line-height: 29px;
+  font-size: 2.5rem;
+  line-height: 2.9rem;
 }
 
 .tipContainer h2 {
@@ -735,14 +735,14 @@ body {
 
 .tipContainer .tipText {
   font-weight: normal;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
   padding: 1rem;
 }
 
 .tipContainer .moreInfo {
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
   padding: 1rem 1rem .1rem 1rem;
 }
 
