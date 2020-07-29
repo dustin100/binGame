@@ -1,4 +1,5 @@
 import tips from './modules/tipData.js';
+
 // nameSpace
 const game = {};
 
@@ -7,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 	game.init();
 });
 
-game.endPoint = `https://secure.toronto.ca/cc_sr_v1/data/swm_waste_wizard_APR?limit=1000`;
+game.endPoint = `./../data/waste_wizard.json`;
 game.storeData = [];
 game.blueBin = [];
 game.greenBin = [];
@@ -33,13 +34,12 @@ game.isPlaying = false;
 game.totalScore = 0;
 game.time = 45;
 game.playerName = '';
-game.proxy = `https://cors-anywhere.herokuapp.com/`;
 
 // Grabs Data and pushes into a new array
 game.fetchData = async (callback) => {
 	try {
-		const { endPoint, storeData, proxy } = game;
-		const res = await fetch(`${proxy}${endPoint}`);
+		const { endPoint, storeData } = game;
+		const res = await fetch(`${endPoint}`);
 		const data = await res.json();
 		data.forEach((i) => {
 			storeData.push(i);
