@@ -510,10 +510,11 @@ body {
   color: #666d72;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  border-right: 1px solid #e5e5e5;
 }
 
 .playContent .timeBox {
-  border-right: 1px solid #666d72;
+  border-right: 1px solid #e5e5e5;
 }
 
 .playContent .keywordItem {

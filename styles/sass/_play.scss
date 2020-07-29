@@ -16,10 +16,13 @@
 		color: $darkColor;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
+		border-right: 1px solid $backgroundColor;
+		
+
 	}
 
 	.timeBox {
-		border-right: 1px solid $darkColor;
+		border-right: 1px solid $backgroundColor;
 	}
 
 	.keywordItem {
