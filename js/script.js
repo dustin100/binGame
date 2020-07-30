@@ -288,5 +288,4 @@ game.getTip = () => {
             <h3>${storeTip.tip}</h3>
             <img src="${storeTip.img}" alt="trash tips">
 			<p class="tipText">${storeTip.des}</p>`;
-	console.log(insertTip);
 };
