@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 	game.init();
 });
 
-game.endPoint = `../data/waste_wizard.json`;
+game.endPoint = `./data/waste_wizard.json`;
 game.storeData = [];
 game.blueBin = [];
 game.greenBin = [];
