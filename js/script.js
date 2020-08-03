@@ -190,6 +190,7 @@ game.getPlayerName = (e) => {
 	game.getName.classList.add('hide');
 	game.addNewHighScore();
 	game.highScoresInfo.classList.remove('hide');
+	game.homeContent.classList.add('hide');
 };
 
 // grabs scores from firebase and stores them in game.highScores
