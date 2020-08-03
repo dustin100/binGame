@@ -399,13 +399,6 @@ body {
   display: none;
 }
 
-@media screen and (orientation: landscape) {
-  body {
-    -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-  }
-}
-
 .homeContent {
   text-align: center;
 }
