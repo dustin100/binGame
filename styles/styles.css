@@ -464,10 +464,6 @@ body {
   background: #165788;
   color: #e5e5e5;
   padding: 3rem;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 .homeContent .topText {
