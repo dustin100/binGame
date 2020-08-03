@@ -32,7 +32,7 @@ game.wasteTip = document.querySelector('.wasteTip');
 game.playAgain = document.querySelector('.playAgain');
 game.home = document.querySelector('.home-link');
 game.home2 = document.querySelector('.home-link2');
-game.homeScores = document.querySelector('.highScoresBtn')
+game.homeScores = document.querySelector('.highScoresBtn');
 game.isPlaying = false;
 game.totalScore = 0;
 game.time = 45;
@@ -150,6 +150,8 @@ game.startTimer = () => {
 		if (game.time <= 0) {
 			clearInterval(game.interval);
 			game.endGame();
+		} else if (game.isPlaying === false) {
+			clearInterval(game.interval);
 		}
 	}
 };
@@ -265,7 +267,6 @@ game.reset = () => {
 	game.totalScore = 0;
 	game.gameScore.innerHTML = 0;
 	game.countDown.innerHTML = 45;
-
 	game.time = 45;
 };
 
@@ -273,6 +274,8 @@ game.returnHome = () => {
 	game.wasteTip.classList.add('hide');
 	game.gameContent.classList.add('hide');
 	game.homeContent.classList.remove('hide');
+	game.reset();
+	game.isPlaying = false;
 };
 
 game.getBins.addEventListener('click', game.handleStart);
@@ -283,7 +286,6 @@ game.playAgain.addEventListener('click', game.newGame);
 game.home.addEventListener('click', game.returnHome);
 game.home2.addEventListener('click', game.returnHome);
 game.homeScores.addEventListener('click', game.getPlayerName);
-
 
 game.init = () => {
 	game.fetchData(game.separate);
