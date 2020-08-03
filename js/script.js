@@ -138,25 +138,34 @@ game.checkAnswer = () => {
 	}
 };
 
-// add timer
+// timer that counts down to the end of the game
 game.startTimer = () => {
 	game.interval = setInterval(countDown, 1000);
-
 	function countDown() {
 		game.time--;
 		game.countDown.innerHTML = game.time;
 		if (game.time <= 0) {
 			clearInterval(game.interval);
-			// end game
 			game.endGame();
 		}
 	}
 };
 
+// if the user gets a top ten score allow them to enter their name and show scoreboard else show recycling tip screen 
+game.playerInTopTen = () => {
+	const { totalScore, highScores } = game;
+	if (totalScore > highScores[9].score) {
+		game.gameContent.classList.add('hide');
+		game.getName.classList.remove('hide');
+	} else {
+		game.gameContent.classList.add('hide');
+		game.wasteTip.classList.remove('hide');
+	}
+};
+
 game.endGame = () => {
 	game.isPlaying = false;
-	game.gameContent.classList.add('hide');
-	game.getName.classList.remove('hide');
+	game.playerInTopTen();
 	game.finalScore.innerHTML = game.totalScore;
 };
 
@@ -173,7 +182,6 @@ game.addNewHighScore = () => {
 game.getPlayerName = (e) => {
 	e.preventDefault();
 	game.playerName = document.querySelector('#playerName').value;
-	console.log(game.playerName);
 	game.getName.classList.add('hide');
 	game.addNewHighScore();
 	game.highScoresInfo.classList.remove('hide');
@@ -182,8 +190,8 @@ game.getPlayerName = (e) => {
 // grabs scores from firebase and stores them in game.highScores
 game.getHighScores = () => {
 	const dbRef = firebase.database().ref();
-	// listen for changes from the database
 
+	// listen for changes from the database
 	dbRef.on('value', (snapshot) => {
 		const data = snapshot.val();
 		game.highScores = []; //empty high scores so that they only appear once
@@ -281,6 +289,7 @@ game.firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(game.firebaseConfig);
 
+// gets a random tip at the end of the game
 game.getTip = () => {
 	const storeTip = game.getRandom(tips);
 	const insertTip = document.querySelector('.tipChange');
