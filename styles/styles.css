@@ -364,6 +364,7 @@ body {
   margin: auto;
   background: #e5e5e5;
   color: #828282;
+  padding-bottom: 2rem;
 }
 
 .btn {
@@ -660,7 +661,7 @@ body {
   text-align: center;
   background: #165788;
   color: #fff;
-  padding-bottom: 300px;
+  height: 100%;
 }
 
 .highScoresInfo .fas {
@@ -732,6 +733,7 @@ body {
   text-align: center;
   width: 90%;
   margin: 0 auto;
+  padding-bottom: 2rem;
 }
 
 .tipContainer h2,
