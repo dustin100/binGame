@@ -491,6 +491,15 @@ body {
   /* IMAGE STYLES */
 }
 
+.playContent .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .playContent .top-right {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -499,6 +508,15 @@ body {
       -ms-flex-pack: end;
           justify-content: flex-end;
   margin-bottom: 6rem;
+}
+
+.playContent .home-link.btn {
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .playContent .topBox {
@@ -744,20 +762,13 @@ body {
 .tipContainer .moreInfo {
   font-size: 1.2rem;
   line-height: 1.4rem;
-  padding: 1rem 1rem .1rem 1rem;
+  padding: 1rem 1rem 0.1rem 1rem;
 }
 
 .tipContainer .appButtons {
   padding: 2rem 0;
 }
 
-.tipContainer .buttonWrapper {
-  position: relative;
-}
-
 .tipContainer .playAgain {
-  position: relative;
-  bottom: -60px;
-  left: 0;
-  width: 100%;
+  margin-bottom: 2rem;
 }

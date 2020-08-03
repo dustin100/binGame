@@ -30,6 +30,8 @@ game.getName = document.querySelector('.popUpForm');
 game.highScoresInfo = document.querySelector('.highScoresInfo');
 game.wasteTip = document.querySelector('.wasteTip');
 game.playAgain = document.querySelector('.playAgain');
+game.home = document.querySelector('.home-link');
+game.home2 = document.querySelector('.home-link2');
 game.isPlaying = false;
 game.totalScore = 0;
 game.time = 45;
@@ -151,7 +153,7 @@ game.startTimer = () => {
 	}
 };
 
-// if the user gets a top ten score allow them to enter their name and show scoreboard else show recycling tip screen 
+// if the user gets a top ten score allow them to enter their name and show scoreboard else show recycling tip screen
 game.playerInTopTen = () => {
 	const { totalScore, highScores } = game;
 	if (totalScore > highScores[9].score) {
@@ -266,11 +268,22 @@ game.reset = () => {
 	game.time = 45;
 };
 
+game.returnHome = () => {
+	game.wasteTip.classList.add('hide');
+	game.gameContent.classList.add('hide');
+	game.homeContent.classList.remove('hide');
+	
+	
+};
+
 game.getBins.addEventListener('click', game.handleStart);
 game.formSubmit.addEventListener('submit', game.handleUserSubmit);
 game.submitName.addEventListener('submit', game.getPlayerName);
 game.closeBox.addEventListener('click', game.handleCloseScoreBox);
 game.playAgain.addEventListener('click', game.newGame);
+game.home.addEventListener('click', game.returnHome);
+game.home2.addEventListener('click', game.returnHome);
+
 
 game.init = () => {
 	game.fetchData(game.separate);

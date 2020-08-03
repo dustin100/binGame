@@ -17,7 +17,7 @@
 
 <body>
     <!-- Screen One -->
-    <div class="homeContent  screenOne">
+    <div class="homeContent hide screenOne">
         <div class="disclaimer wrapper">
             <i class="fas fa-exclamation-triangle"></i>
             <p>Disclaimer: Info used here is correct for the City of Toronto only. Check your local facilities for
@@ -52,11 +52,16 @@
 
     <!-- Screen Two -->
     <div class="screenTwo playContent hide gameContent">
-        <div class="top-right">
-            <p class="timeBox topBox">Time <span class="countDown">45</span></p>
-            <p class="scoreBox topBox">Score <span class="score">0</span></p>
-        </div>
+        <div class="top">
+            <div class="top-left">
+                <button class="home-link btn">Home</button>
+            </div>
+            <div class="top-right">
+                <p class="timeBox topBox">Time <span class="countDown">45</span></p>
+                <p class="scoreBox topBox">Score <span class="score">0</span></p>
+            </div>
 
+        </div>
         <h2 class="keywordItem">KeyWord</h2>
         <form class="question" id="userPick" method="" action="">
             <img class="correctWrong" src="./imgs/no_image.png" alt="Correct or Wrong Answer">
@@ -114,7 +119,7 @@
 
 
     <!-- Screen Five -->
-    <div class=" hide wasteTip wrapper screenFive">
+    <div class="  wasteTip wrapper screenFive">
         <div class="tipContainer ">
             <div class="tipChange">
                 <h2>Waste Tip:</h2>
@@ -137,6 +142,8 @@
             </div>
             <div class="buttonWrapper">
                 <button class="btn playAgain">Play Again</button>
+                <button class="btn home-link2">Home</button>
+
             </div>
 
         </div>
