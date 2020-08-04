@@ -420,20 +420,20 @@ body {
 
 .homeContent .disclaimer p {
   text-align: left;
-  line-height: 1.8rem;
+  line-height: normal;
 }
 
 .homeContent h1 {
   font-weight: bold;
   font-size: 3.6rem;
-  line-height: 4.2rem;
+  line-height: normal;
   color: #165788;
   margin-bottom: 1rem;
 }
 
 .homeContent h2 {
   font-size: 2rem;
-  line-height: 2.3rem;
+  line-height: normal;
   color: #165788;
   margin-bottom: 3rem;
 }
@@ -469,12 +469,12 @@ body {
 
 .homeContent .topText {
   font-size: 1.5rem;
-  line-height: 1.8rem;
+  line-height: normal;
 }
 
 .homeContent .bottomText {
   font-size: 1.2rem;
-  line-height: 1.4rem;
+  line-height: normal;
   margin-bottom: 0.5rem;
 }
 
@@ -612,7 +612,7 @@ body {
 .popUpForm .congrats {
   font-weight: bold;
   font-size: 3rem;
-  line-height: 1.8em;
+  line-height: normal;
   padding: 1rem;
   margin-bottom: 2rem;
   margin-top: 3rem;
@@ -645,21 +645,21 @@ body {
 
 .popUpForm .enterNameText {
   font-size: 1.5rem;
-  line-height: 1.8em;
+  line-height: normal;
   margin-bottom: 2rem;
 }
 
 .popUpForm .textOne {
   font-weight: bold;
   font-size: 1.5rem;
-  line-height: 1.8em;
+  line-height: normal;
   text-transform: uppercase;
 }
 
 .popUpForm .finScore {
   font-weight: bold;
   font-size: 5rem;
-  line-height: 5.9rem;
+  line-height: normal;
 }
 
 .highScoresInfo {
@@ -741,7 +741,7 @@ body {
 .tipContainer h3 {
   font-weight: bold;
   font-size: 2.5rem;
-  line-height: 1.8em;
+  line-height: normal;
 }
 
 .tipContainer h2 {
@@ -755,13 +755,13 @@ body {
 .tipContainer .tipText {
   font-weight: normal;
   font-size: 1.4rem;
-  line-height: 1.9em;
+  line-height: normal;
   padding: 1rem;
 }
 
 .tipContainer .moreInfo {
   font-size: 1.2rem;
-  line-height: 1.9em;
+  line-height: normal;
   padding: 1rem 1rem 0.1rem 1rem;
 }
 

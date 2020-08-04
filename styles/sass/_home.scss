@@ -12,20 +12,20 @@
 		}
 		p {
 			text-align: left;
-			line-height: 1.8rem;
+			line-height: normal;
 		}
 	}
 
 	h1 {
 		font-weight: bold;
 		font-size: 3.6rem;
-		line-height: 4.2rem;
+		line-height: normal;
 		color: $mainColor;
 		margin-bottom: 1rem;
 	}
 	h2 {
 		font-size: 2rem;
-		line-height: 2.3rem;
+		line-height: normal;
 		color: $mainColor;
 		margin-bottom: 3rem;
 	}
@@ -59,12 +59,12 @@
 	}
 	.topText {
 		font-size: 1.5rem;
-		line-height: 1.8rem;
+		line-height: normal;
 	}
 
 	.bottomText {
 		font-size: 1.2rem;
-		line-height: 1.4rem;
+		line-height: normal;
 		margin-bottom: 0.5rem;
 	}
 
