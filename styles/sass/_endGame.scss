@@ -11,6 +11,10 @@
 	padding-top: 3rem;
 	height: 100%;
 
+	p {
+		margin: 1rem 0;
+	}
+
 	.fas {
 		font-size: 4rem;
 		color: $accentOne;
@@ -21,7 +25,7 @@
 	.congrats {
 		font-weight: bold;
 		font-size: 3rem;
-		line-height: 3.5rem;
+		line-height: 1.8em;
 		padding: 1rem;
 		margin-bottom: 2rem;
 		margin-top: 3rem;
@@ -53,13 +57,13 @@
 
 	.enterNameText {
 		font-size: 1.5rem;
-		line-height: 1.8rem;
+		line-height: 1.8em;
 		margin-bottom: 2rem;
 	}
 	.textOne {
 		font-weight: bold;
 		font-size: 1.5rem;
-		line-height: 1.8rem;
+		line-height: 1.8em;
 		text-transform: uppercase;
 	}
 
