@@ -42,6 +42,7 @@
 		line-height: 3rem;
 		color: #000;
 		margin-bottom: 5rem;
+		padding: .5rem;
 	}
 
 	.question {
@@ -55,7 +56,7 @@
 	}
 
 	label img {
-		width: 95px;
+		width: 9.5rem;
 		margin-bottom: 5rem;
 	}
 
@@ -75,7 +76,7 @@
 	/* IMAGE STYLES */
 	[type='radio'] + label img {
 		cursor: pointer;
-		max-width: 100px;
+		max-width: 100rem;
 		opacity: 0.5;
 	}
 

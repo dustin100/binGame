@@ -180,8 +180,11 @@ game.addNewHighScore = () => {
 		player: game.playerName,
 		score: game.totalScore,
 	};
-
-	dbRef.push(playerResults);
+	if (game.totalScore <= 0 || game.playerName.length <= 0) {
+		return;
+	} else {
+		dbRef.push(playerResults);
+	}
 };
 
 game.getPlayerName = (e) => {
